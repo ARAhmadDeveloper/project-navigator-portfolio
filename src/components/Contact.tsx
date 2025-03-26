@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { supabase } from '@/integrations/supabase/client';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,25 +18,39 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Insert form data into Supabase
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert([formData]);
+      
+      if (error) {
+        throw error;
+      }
+      
       toast.success('Message sent successfully!', {
         description: 'I will get back to you as soon as possible.',
       });
       
+      // Reset form
       setFormData({
         name: '',
         email: '',
         subject: '',
         message: '',
       });
-      
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast.error('Failed to send message', {
+        description: 'Please try again later.',
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
