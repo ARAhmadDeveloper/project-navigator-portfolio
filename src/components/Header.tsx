@@ -39,7 +39,7 @@ const Header = () => {
             transition={{ duration: 0.5 }}
           >
             <a href="#home" className="text-2xl font-display font-bold text-foreground">
-              Portfolio<span className="text-primary">.</span>
+              arahmad<span className="text-primary">.</span>
             </a>
           </motion.div>
           
