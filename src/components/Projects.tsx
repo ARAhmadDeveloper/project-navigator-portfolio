@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -54,26 +53,6 @@ const Projects = () => {
       demoUrl: "#",
       githubUrl: "#",
       category: "backend",
-    },
-    {
-      id: 4,
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates and team workspaces.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop&q=60",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
-      demoUrl: "#",
-      githubUrl: "#",
-      category: "fullstack",
-    },
-    {
-      id: 5,
-      title: "Weather Dashboard",
-      description: "A weather application with location-based forecasts and interactive maps.",
-      image: "https://images.unsplash.com/photo-1601134467661-3d775b999c8b?w=800&auto=format&fit=crop&q=60",
-      technologies: ["React", "OpenWeather API", "Mapbox", "Tailwind CSS"],
-      demoUrl: "#",
-      githubUrl: "#",
-      category: "frontend",
     },
     {
       id: 6,
