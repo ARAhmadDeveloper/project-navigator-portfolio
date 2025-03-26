@@ -1,6 +1,14 @@
 
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 interface Project {
   id: number;
@@ -21,7 +29,7 @@ const Projects = () => {
       id: 1,
       title: "E-Commerce Platform",
       description: "A full-featured e-commerce platform with user authentication, product management, and payment integration.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&auto=format&fit=crop&q=60",
       technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
       demoUrl: "#",
       githubUrl: "#",
@@ -31,7 +39,7 @@ const Projects = () => {
       id: 2,
       title: "Social Media Dashboard",
       description: "A responsive dashboard for social media analytics with real-time data visualization.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60",
       technologies: ["React", "Redux", "Chart.js", "CSS Modules"],
       demoUrl: "#",
       githubUrl: "#",
@@ -41,7 +49,7 @@ const Projects = () => {
       id: 3,
       title: "RESTful API Service",
       description: "A secure API service with comprehensive documentation, rate limiting, and caching.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60",
       technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
       demoUrl: "#",
       githubUrl: "#",
@@ -51,7 +59,7 @@ const Projects = () => {
       id: 4,
       title: "Task Management App",
       description: "A collaborative task management application with real-time updates and team workspaces.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop&q=60",
       technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
       demoUrl: "#",
       githubUrl: "#",
@@ -61,7 +69,7 @@ const Projects = () => {
       id: 5,
       title: "Weather Dashboard",
       description: "A weather application with location-based forecasts and interactive maps.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1601134467661-3d775b999c8b?w=800&auto=format&fit=crop&q=60",
       technologies: ["React", "OpenWeather API", "Mapbox", "Tailwind CSS"],
       demoUrl: "#",
       githubUrl: "#",
@@ -71,7 +79,7 @@ const Projects = () => {
       id: 6,
       title: "Content Management System",
       description: "A headless CMS with customizable content types and multi-user collaboration.",
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop&q=60",
       technologies: ["Node.js", "Express", "MongoDB", "GraphQL"],
       demoUrl: "#",
       githubUrl: "#",
@@ -121,13 +129,13 @@ const Projects = () => {
               key={project.id} 
               className="glass rounded-xl overflow-hidden card-hover"
             >
-              <div className="aspect-video bg-muted overflow-hidden">
+              <AspectRatio ratio={16/9} className="bg-muted overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
                   className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
                 />
-              </div>
+              </AspectRatio>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-muted-foreground mb-4">{project.description}</p>
@@ -162,6 +170,31 @@ const Projects = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-16">
+          <Carousel className="max-w-4xl mx-auto">
+            <CarouselContent>
+              {projects.map((project) => (
+                <CarouselItem key={project.id} className="md:basis-1/2">
+                  <div className="glass rounded-xl overflow-hidden p-1">
+                    <AspectRatio ratio={16/9} className="bg-muted overflow-hidden rounded-lg">
+                      <img 
+                        src={project.image} 
+                        alt={project.title} 
+                        className="w-full h-full object-cover"
+                      />
+                    </AspectRatio>
+                    <div className="p-4">
+                      <h3 className="text-lg font-semibold">{project.title}</h3>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="lg:-left-12 left-2" />
+            <CarouselNext className="lg:-right-12 right-2" />
+          </Carousel>
         </div>
       </div>
     </section>
