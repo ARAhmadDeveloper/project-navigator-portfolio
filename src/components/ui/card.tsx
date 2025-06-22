@@ -1,17 +1,21 @@
 import * as React from "react"
-
+import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+
+const MotionCard = motion.div; // Create a motion component from div
 
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div
+  <MotionCard
     ref={ref}
     className={cn(
       "rounded-lg border bg-card text-card-foreground shadow-sm",
       className
     )}
+    whileHover={{ y: -3, boxShadow: "0px 8px 16px rgba(0,0,0,0.08)" }}
+    transition={{ duration: 0.2, ease: "easeOut" }}
     {...props}
   />
 ))
