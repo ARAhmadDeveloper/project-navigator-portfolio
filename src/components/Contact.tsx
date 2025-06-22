@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import ContactSocial from "./ContactSocial";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -302,7 +303,7 @@ const Contact = () => {
               <h4 className="text-lg font-semibold mb-4">Connect with me</h4>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/ArAhmadRaza/ahmad5"
+                  href="https://github.com/arahmaddeveloper/Ahmad5"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 w-10 bg-background rounded-full flex items-center justify-center text-foreground hover:text-primary hover:bg-primary/10 transition-colors"
