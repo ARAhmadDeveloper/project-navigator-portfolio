@@ -99,7 +99,9 @@
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg hover:shadow-primary/10;
+    /* The translate-y and shadow are now handled by Framer Motion for project cards. */
+    /* Keeping transition for any other CSS-driven hover effects if added later. */
+    @apply transition-all duration-300;
   }
 
   .stagger-animation > * {

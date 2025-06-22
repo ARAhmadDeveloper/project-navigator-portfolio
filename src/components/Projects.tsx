@@ -104,9 +104,15 @@ const Projects = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div 
-              key={project.id} 
+import { motion } from 'framer-motion';
+// ... other imports
+
+// In the map function for filteredProjects:
+            <motion.div
+              key={project.id}
               className="glass rounded-xl overflow-hidden card-hover"
+              whileHover={{ y: -5, boxShadow: "0px 10px 20px rgba(0,0,0,0.1)" }}
+              transition={{ duration: 0.2 }}
             >
               <AspectRatio ratio={16/9} className="bg-muted overflow-hidden">
                 <img 

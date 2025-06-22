@@ -15,12 +15,13 @@ const Hero = () => {
       const x = (clientX - left) / width - 0.5;
       const y = (clientY - top) / height - 0.5;
       
-      heroRef.current.style.transform = `perspective(1000px) rotateY(${x * 5}deg) rotateX(${y * -5}deg)`;
+      // Applying a more subtle effect
+      heroRef.current.style.transform = `perspective(1000px) rotateY(${x * 3}deg) rotateX(${y * -3}deg) translateZ(10px)`;
     };
     
     const handleMouseLeave = () => {
       if (!heroRef.current) return;
-      heroRef.current.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg)';
+      heroRef.current.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateZ(0px)';
     };
     
     const element = heroRef.current;
@@ -37,10 +38,29 @@ const Hero = () => {
     };
   }, []);
 
+  const blurVariants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, ease: "easeOut", delay: 0.5 }
+    },
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-      <div className="absolute -top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-40"></div>
-      <div className="absolute -bottom-20 -left-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl opacity-40"></div>
+      <motion.div
+        className="absolute -top-20 -right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-40"
+        variants={blurVariants}
+        initial="hidden"
+        animate="visible"
+      />
+      <motion.div
+        className="absolute -bottom-20 -left-20 w-96 h-96 bg-secondary/20 rounded-full blur-3xl opacity-40"
+        variants={blurVariants}
+        initial="hidden"
+        animate="visible"
+      />
       
       <div className="section-container relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -91,7 +111,8 @@ const Hero = () => {
           
           <motion.div 
             ref={heroRef}
-            className="lg:w-1/2 transition-transform duration-300 ease-out"
+            className="lg:w-1/2" // Removed transition-transform here as it's handled by JS/Framer Motion
+            style={{ transformStyle: "preserve-3d" }} // Important for 3D transforms on children
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -100,17 +121,38 @@ const Hero = () => {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-75 animate-pulse-subtle"></div>
               <div className="glass rounded-2xl p-8 relative">
                 <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute w-32 h-32 bg-primary/20 rounded-full blur-2xl -top-10 -left-10"></div>
-                  <div className="absolute w-32 h-32 bg-secondary/20 rounded-full blur-2xl -bottom-10 -right-10"></div>
+                  <motion.div
+                    className="absolute w-32 h-32 bg-primary/20 rounded-full blur-2xl -top-10 -left-10"
+                    variants={blurVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={0.8} // Example of custom delay if needed via variants
+                  />
+                  <motion.div
+                    className="absolute w-32 h-32 bg-secondary/20 rounded-full blur-2xl -bottom-10 -right-10"
+                    variants={blurVariants}
+                    initial="hidden"
+                    animate="visible"
+                    custom={0.9} // Example of custom delay
+                  />
                   
                   <motion.div 
-                    className="text-6xl font-bold text-primary relative z-10 animate-float"
+                    className="text-6xl font-bold text-primary relative z-10" // Removed animate-float
                     initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
+                    animate={{
+                      scale: 1,
+                      opacity: 1,
+                      y: [0, -8, 0] // Replaced CSS float with Framer Motion
+                    }}
                     transition={{ 
-                      type: "spring", 
-                      stiffness: 100, 
-                      delay: 0.8 
+                      scale: { type: "spring", stiffness: 100, delay: 0.8 },
+                      opacity: { type: "spring", stiffness: 100, delay: 0.8 },
+                      y: {
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1 // Start floating after initial scale/opacity animation
+                      }
                     }}
                   >
                     <span className="text-gradient">&lt;/&gt;</span>
