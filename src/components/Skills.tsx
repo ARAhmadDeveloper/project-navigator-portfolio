@@ -41,6 +41,10 @@ const Skills = () => {
   }, []);
 
   const skillsData: Skill[] = [
+    { name: 'JavaScript', icon: '🟨', color: 'from-blue-400 to-indigo-500' },
+    { name: 'TypeScript', icon: '🔷', color: 'from-blue-400 to-indigo-500' },
+    { name: 'Python', icon: '🐍', color: 'from-blue-400 to-indigo-500' },
+    { name: 'HTML/CSS', icon: '🌐', color: 'from-blue-400 to-indigo-500' },
     { name: 'React.js', icon: '⚛️', color: 'from-cyan-400 to-blue-500' },
     { name: 'Next.js', icon: '▲', color: 'from-slate-700 to-slate-900' },
     { name: 'Node.js', icon: '🟢', color: 'from-green-400 to-green-600' },
@@ -51,6 +55,11 @@ const Skills = () => {
     { name: 'REST APIs', icon: '🔌', color: 'from-gray-600 to-gray-800' },
     { name: 'Express.js', icon: '🚂', color: 'from-gray-400 to-gray-600' },
     { name: 'Git/GitHub', icon: '🐙', color: 'from-purple-500 to-purple-700' },
+    { name: 'Tailwind CSS', icon: '🌬️', color: 'from-blue-400 to-indigo-500' },
+    { name: "FastAPI", icon: '⚡', color: 'from-blue-400 to-indigo-500' },
+    { name: "SQL", icon: '🗄️', color: 'from-blue-400 to-indigo-500' },
+    { name: "NoSQL", icon: '📦', color: 'from-blue-400 to-indigo-500' },
+    { name: "Pydantic", icon: '🧩', color: 'from-blue-400 to-indigo-500' },
   ];
 
   const containerVariants = {
@@ -97,6 +106,9 @@ const Skills = () => {
               key={skill.name}
               className="skill-item"
               variants={itemVariants}
+              whileHover={{ rotate: 360 }}
+              transition={{ type: "spring", stiffness: 80, damping: 20, duration: 1 }}
+              style={{ willChange: "transform" }}
             >
               <div className="glass h-full rounded-xl p-6 hover:scale-105 transition-transform duration-300 shadow-lg shadow-primary/5">
                 <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center bg-gradient-to-br ${skill.color}`}>

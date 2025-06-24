@@ -117,32 +117,68 @@ const Hero = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="relative">
+            <motion.div
+              className="relative"
+              whileHover={{ rotate: 360 }}
+              transition={{ type: "spring", stiffness: 80, damping: 20, duration: 1 }}
+            >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-75 animate-pulse-subtle"></div>
-              <div className="glass rounded-2xl p-8 relative">
-                <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center relative overflow-hidden">
+              <div className="glass rounded-2xl p-8 relative shadow-lg shadow-primary/20 ">
+                <div className="w-full aspect-square shadow-lg shadow-primary/20 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center relative overflow-hidden">
+                  <svg
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                  >
+                    <rect
+                      x="1"
+                      y="1"
+                      width="98"
+                      height="98"
+                      fill="none"
+                      stroke="url(#border-gradient)"
+                      strokeWidth="1"
+                      strokeDasharray="98 98 98 98"
+                      strokeLinecap="round"
+                    >
+                      <animate
+                        attributeName="stroke-dashoffset"
+                        values="384;288;192;96;0;384"
+                        keyTimes="0;0.25;0.5;0.75;1;1"
+                        dur="3.5s"
+                        repeatCount="indefinite"
+                      />
+                    </rect>
+                    <defs>
+                      <linearGradient id="border-gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="rgb(99,102,241)" stopOpacity="0.5" />
+                        <stop offset="0.5" stopColor="rgb(232,121,249)" stopOpacity="0.5" />
+                        <stop offset="1" stopColor="rgb(99,102,241)" stopOpacity="0.5" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
                   <motion.div
                     className="absolute w-32 h-32 bg-primary/20 rounded-full blur-2xl -top-10 -left-10"
                     variants={blurVariants}
                     initial="hidden"
                     animate="visible"
-                    custom={0.8} // Example of custom delay if needed via variants
+                    custom={0.8} 
                   />
                   <motion.div
                     className="absolute w-32 h-32 bg-secondary/20 rounded-full blur-2xl -bottom-10 -right-10"
                     variants={blurVariants}
                     initial="hidden"
                     animate="visible"
-                    custom={0.9} // Example of custom delay
+                    custom={0.9}
                   />
                   
                   <motion.div 
-                    className="text-6xl font-bold text-primary relative z-10" // Removed animate-float
+                    className="text-1xl font-bold font-mono text-primary relative z-10" 
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{
                       scale: 1,
                       opacity: 1,
-                      y: [0, -8, 0] // Replaced CSS float with Framer Motion
+                      y: [0, -8, 0] 
                     }}
                     transition={{ 
                       scale: { type: "spring", stiffness: 100, delay: 0.8 },
@@ -151,15 +187,15 @@ const Hero = () => {
                         duration: 4,
                         repeat: Infinity,
                         ease: "easeInOut",
-                        delay: 1 // Start floating after initial scale/opacity animation
+                        delay: 1 
                       }
                     }}
                   >
-                    <span className="text-gradient">&lt;/&gt;</span>
+                    <span className="text-gradient">&lt;ARAHMAD/&gt;</span>
                   </motion.div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
