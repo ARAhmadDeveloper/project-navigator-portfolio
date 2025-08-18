@@ -12,4 +12,4 @@ Allow: /
 
 User-agent: *
 Allow: /
-Sitemap: https://araxmadraza.vercel.app/sitemap.xml
+Sitemap: https://araxmad.vercel.app/sitemap.xml
