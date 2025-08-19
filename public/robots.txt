@@ -12,4 +12,4 @@ Allow: /
 
 User-agent: *
 Allow: /
-Sitemap: https://araxmad.vercel.app/sitemap.xml
+Sitemap: https://araxmad.netlify.app/sitemap.xml
