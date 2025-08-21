@@ -26,10 +26,10 @@ function ContactSocial(){
             <div className="ml-4">
               <h4 className="text-base font-semibold">Email</h4>
               <a
-                href="mailto:theardeveloper.com"
+                href="mailto:arahmaddeveloper@gmail.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
-                theardeveloper.com
+                arahmaddeveloper@gmail.com
               </a>
             </div>
           </div>
@@ -53,7 +53,14 @@ function ContactSocial(){
             </div>
             <div className="ml-4">
               <h4 className="text-base font-semibold">Phone</h4>
-              <p className="text-muted-foreground">+92 329 580 7961</p>
+              <a
+                href="https://wa.link/oqay19"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                +92 329 580 7961
+              </a>
             </div>
           </div>
 

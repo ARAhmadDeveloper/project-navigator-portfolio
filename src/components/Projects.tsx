@@ -29,38 +29,38 @@ const Projects = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Videome Streaming Platform",
       description:
-        "A full-featured e-commerce platform with user authentication, product management, and payment integration.",
+        "A modern video streaming platform inspired by YouTube, featuring video upload, playback, search, and user authentication.",
       image:
-        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&auto=format&fit=crop&q=60",
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
-      demoUrl: "#",
-      githubUrl: "#",
+        "1st_project.png",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "MUI", "Zustand"],
+      demoUrl: "https://v0-video-web-app.vercel.app/",
+      githubUrl: "https://github.com/ARAhmadDeveloper/pure-youtube",
       category: "fullstack",
     },
     {
       id: 2,
-      title: "Social Media Dashboard",
+      title: "Revenue Dashboard",
       description:
-        "A responsive dashboard for social media analytics with real-time data visualization.",
+        "A responsive dashboard for Efficient Operation Revenue, featuring interactive charts and user-friendly filtering",
       image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=60",
-      technologies: ["React", "Redux", "Chart.js", "CSS Modules"],
-      demoUrl: "#",
-      githubUrl: "#",
+        "/2nd_project.png",
+      technologies: ["Next.js","Tailwind", "React", "Redux", "Material-UI", "Chart.js"],
+      demoUrl: "https://cloudverseweb.netlify.app/",
+      githubUrl: "https://github.com/ARAhmadDeveloper/v0-cloudverse",
       category: "frontend",
     },
     {
       id: 3,
       title: "RESTful API Service",
       description:
-        "A secure API service with comprehensive documentation, rate limiting, and caching.",
+        "A secure API service with comprehensive documentation, rate limiting, and caching for a variety of use cases.",
       image:
         "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60",
       technologies: ["Node.js", "Express", "MongoDB", "JWT", "Swagger"],
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/ARAhmadDeveloper/Ahmad5/tree/master/%F0%9F%9F%A9NODEJS/my-app",
       category: "backend",
     },
     {
@@ -72,7 +72,7 @@ const Projects = () => {
         "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop&q=60",
       technologies: ["Node.js", "Express", "MongoDB", "GraphQL"],
       demoUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/ARAhmadDeveloper/Ahmad5/tree/master/%F0%9F%9F%A9NODEJS/my-app",
       category: "backend",
     },
   ];
@@ -148,14 +148,17 @@ const Projects = () => {
                   ))}
                 </div>
                 <div className="flex gap-4">
-                  <a
-                    href={project.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="button-primary flex-1 flex justify-center"
-                  >
-                    Live Demo
-                  </a>
+                  {/* Only show Live Demo button if not backend */}
+                  {project.category !== "backend" && (
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="button-primary flex-1 flex justify-center"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                   <a
                     href={project.githubUrl}
                     target="_blank"

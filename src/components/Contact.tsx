@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import ContactSocial from "./ContactSocial";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -239,10 +238,10 @@ const Contact = () => {
                 <div className="ml-4">
                   <h4 className="text-base font-semibold">Email</h4>
                   <a
-                    href="mailto:theardeveloper.com"
+                    href="mailto:arahmaddeveloper@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    theardeveloper.com
+                    arahmaddeveloper@gmail.com
                   </a>
                 </div>
               </div>
@@ -266,7 +265,12 @@ const Contact = () => {
                 </div>
                 <div className="ml-4">
                   <h4 className="text-base font-semibold">Phone</h4>
-                  <p className="text-muted-foreground">+92 329 580 7961</p>
+                  <a
+                    href="https://wa.link/oqay19"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    0329 580 7961
+                  </a>
                 </div>
               </div>
 
@@ -303,7 +307,7 @@ const Contact = () => {
               <h4 className="text-lg font-semibold mb-4">Connect with me</h4>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/arahmaddeveloper/Ahmad5"
+                  href="https://github.com/arahmaddeveloper/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="h-10 w-10 bg-background rounded-full flex items-center justify-center text-foreground hover:text-primary hover:bg-primary/10 transition-colors"

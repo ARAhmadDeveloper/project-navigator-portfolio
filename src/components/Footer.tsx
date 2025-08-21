@@ -91,7 +91,7 @@ const Footer = () => {
 
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a
-              href="https://github.com/ArAhmadRaza/ahmad5"
+              href="https://github.com/arahmaddeveloper/"
               target="_blank"
               rel="noopener noreferrer"
               className="h-10 w-10 rounded-full flex items-center justify-center text-background/80 hover:text-background hover:bg-white/10 transition-colors"
